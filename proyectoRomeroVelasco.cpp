@@ -130,15 +130,6 @@ void Diccionario(char* szNombre, char szPalabras[][TAMTOKEN], int iEstadisticas[
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
 /*****************************************************************************************************************
 	ListaCandidatas: Esta funcion recupera desde el diccionario las palabras validas y su peso
 	Regresa las palabras ordenadas por su peso
@@ -151,6 +142,32 @@ void Diccionario(char* szNombre, char szPalabras[][TAMTOKEN], int iEstadisticas[
 	int		iPeso[],							//Peso de las palabras en la lista final
 	int &	iNumLista)							//Numero de elementos en la szListaFinal
 ******************************************************************************************************************/
+void	ClonaPalabras(
+	char* szPalabraLeida,						// Palabra a clonar
+	char  szPalabrasSugeridas[][TAMTOKEN], 	    //Lista de palabras clonadas
+	int& iNumSugeridas)						    //Numero de elementos en la lista
+{
+	
+	/*
+	//Sustituya estas lineas por su c digo
+	strcpy(szPalabrasSugeridas[0], szPalabraLeida); //lo que sea que se capture, es sugerencia
+	iNumSugeridas = 1;							//Una sola palabra sugerida*/
+
+	/*Variables para la clonacion*/
+	char aux[TAMTOKEN]; iNumSugeridas = 0;
+
+	/*Pasar de szPalabraLeida al la variable aux*/
+	strcpy_s(aux, szPalabraLeida);
+
+	//Pasar el abecedario en cada caracter
+	for (int i = 0; i < strlen(szPalabraLeida); i++) {
+
+		for (int j = 0; j < LONGITUD; j++) {
+			aux[i] = abecedario[j];
+			/*Numero de elementos en la lista a la Lista de palabras clonadas*/
+			strcpy_s(szPalabrasSugeridas[iNumSugeridas++], aux);
+		} aux[i] = szPalabraLeida[i];
+	}
 
 
 
