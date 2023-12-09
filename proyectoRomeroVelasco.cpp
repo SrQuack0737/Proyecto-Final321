@@ -168,6 +168,18 @@ void	ClonaPalabras(
 			strcpy_s(szPalabrasSugeridas[iNumSugeridas++], aux);
 		} aux[i] = szPalabraLeida[i];
 	}
+	//Pasar el abecedario entre los caracteres
+		int k;
+		for (k = 1; k < strlen(szPalabraLeida) + 1; k++) {
+			aux[k] = szPalabraLeida[k - 1];
+
+			/*Para asignar espacios*/
+		} aux[k] = '\0';
+
+		for (int i = 0; i < strlen(szPalabraLeida) + 1; i++) {
+
+			for (int j = 0; j < LONGITUD; j++) {
+				aux[i] = abecedario[j];
 
 
 
